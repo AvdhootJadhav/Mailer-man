@@ -1,7 +1,4 @@
 package com.avdhoot.springmailservice;
-
-import java.io.File;
-
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
@@ -28,7 +25,7 @@ public class EmailSenderService {
         System.out.println("Mail sent");
     }
 
-    public void mailWithAttachments(String toEmail, String body, String subject, String attachment) throws MessagingException{
+    public void mailWithAttachments(String toEmail, String body, String subject, FileSystemResource attachment) throws MessagingException{
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper messageHelper = new MimeMessageHelper(message,true);
 
@@ -36,9 +33,7 @@ public class EmailSenderService {
         messageHelper.setTo(toEmail);
         messageHelper.setSubject(subject);
         messageHelper.setText(body);
-
-        FileSystemResource fileSystemResource = new FileSystemResource(new File(attachment));
-        messageHelper.addAttachment(fileSystemResource.getFilename(), fileSystemResource);
+        messageHelper.addAttachment(attachment.getFilename(), attachment);
         mailSender.send(message);
         System.out.println("Mail sent with attachment");
     }
