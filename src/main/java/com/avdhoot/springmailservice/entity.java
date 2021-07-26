@@ -1,6 +1,7 @@
 package com.avdhoot.springmailservice;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,5 +16,5 @@ public class entity {
     private String toEmail;
     private String subject;
     private String body;
-    private String attachment;
+    private MultipartFile file;
 }
