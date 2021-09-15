@@ -1,3 +1,3 @@
 # Spring-Mail-Service
 
-A simple mail service demo using Spring.
+A simple mail service using Spring Boot.
