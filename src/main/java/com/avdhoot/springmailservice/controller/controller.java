@@ -1,4 +1,4 @@
-package com.avdhoot.springmailservice;
+package com.avdhoot.springmailservice.controller;
 
 import java.io.IOException;
 
@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.avdhoot.springmailservice.model.Entity;
+import com.avdhoot.springmailservice.service.EmailSenderService;
+
 @RestController
 @RequestMapping("/sendmail")
 public class controller {
@@ -19,13 +22,13 @@ public class controller {
     private EmailSenderService service;
 
     @PostMapping("/simple")
-    public String simplemail(@RequestBody entity en){
+    public String simplemail(@RequestBody Entity en){
         service.sendSimpleMail(en.getToEmail(), en.getBody(), en.getSubject());
         return "Simple Mail send";
     }
 
     @PostMapping("/advance")
-    public String advancemail(@ModelAttribute entity en) throws MessagingException, IOException{
+    public String advancemail(@ModelAttribute Entity en) throws MessagingException, IOException{
         service.mailWithAttachments(en.getToEmail(), en.getBody(), en.getSubject(), en.getFile());
         return "Attachment Mail send";
     }

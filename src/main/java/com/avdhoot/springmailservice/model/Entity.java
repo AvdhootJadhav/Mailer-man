@@ -1,4 +1,4 @@
-package com.avdhoot.springmailservice;
+package com.avdhoot.springmailservice.model;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
-public class entity {
+public class Entity {
     
     private String toEmail;
     private String subject;

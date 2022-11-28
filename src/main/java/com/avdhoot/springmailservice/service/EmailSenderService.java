@@ -1,4 +1,4 @@
-package com.avdhoot.springmailservice;
+package com.avdhoot.springmailservice.service;
 import java.io.IOException;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
